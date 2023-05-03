@@ -60,6 +60,20 @@ def excluseSounds(sortedArray):
             finalArray.append(sortedArray[i])
     print("Your array:")
     print(finalArray)
+    downloadFile(finalArray)
+
+def downloadFile(finalArray):
+    print("Do you want to download the file? (y/n)")
+    answer = input()
+    if answer == 'y':
+        print("Downloading file...")
+        with open('output.txt', 'w') as f:
+            for item in finalArray:
+                f.write(f"{item}\n")
+        print("File downloaded.")
+    else:
+        print("Exiting...")
+        sys.exit(2)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
